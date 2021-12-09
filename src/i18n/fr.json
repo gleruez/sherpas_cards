@@ -1,7 +1,11 @@
 {
-  "toText": "à",
+  "to": "à",
   "sendTitle": "Envoyé le",
   "accepted": "Demande acceptée",
   "refused": "Demande refusée",
-  "freeGift": "Offert"
+  "freeGift": "Offert",
+  "from": "de",
+  "hours": "{hour,plural, =1{{hour} heure}other{{hour} heures}}",
+  "level": "Niveau {degree}",
+  "connexion": "En ligne via {url}"
 }

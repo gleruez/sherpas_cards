@@ -17,28 +17,26 @@ export type BodyTitleProps = {
   time: string
 }
 
-const getModeTitle = (mode: string, modeTitle: string) => {
-  const { formatMessage } = useIntl()
-
-  switch (mode) {
-    case 'ACCEPTED':
-      return <Mea mode={mode} title={formatMessage({ id: 'accepted' })} />
-    case 'REFUSED':
-      return <Mea mode={mode} title={formatMessage({ id: 'refused' })} />
-    case 'IN_PROGRESS':
-    default:
-      return (
-        <div css={styles.modeTitle}>
-          <Typography component="p" variant="body1">
-            {formatMessage({ id: 'freeGift' })}
-          </Typography>
-        </div>
-      )
-  }
-}
-
 const BodyTitle: VFC<BodyTitleProps> = ({ date, modeTitle, mode, time, title }) => {
   const { formatMessage } = useIntl()
+
+  const getModeTitle = () => {
+    switch (mode) {
+      case 'ACCEPTED':
+        return <Mea mode={mode} title={formatMessage({ id: 'accepted' })} />
+      case 'REFUSED':
+        return <Mea mode={mode} title={formatMessage({ id: 'refused' })} />
+      case 'IN_PROGRESS':
+      default:
+        return (
+          <div css={styles.modeTitle}>
+            <Typography component="p" variant="body1">
+              {formatMessage({ id: 'freeGift' })}
+            </Typography>
+          </div>
+        )
+    }
+  }
 
   return (
     <div css={styles.bodyTitle}>
@@ -48,10 +46,10 @@ const BodyTitle: VFC<BodyTitleProps> = ({ date, modeTitle, mode, time, title }) 
           {title}
         </Typography>
         <Typography variant="subtitle1">
-          {formatMessage({ id: 'sendTitle' })} {date} {formatMessage({ id: 'toText' })} {time}
+          {formatMessage({ id: 'sendTitle' })} {date} {formatMessage({ id: 'to' })} {time}
         </Typography>
       </div>
-      {getModeTitle(mode, modeTitle)}
+      {getModeTitle()}
     </div>
   )
 }

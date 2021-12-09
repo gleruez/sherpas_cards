@@ -50,7 +50,6 @@ const withI18nProvider: Decorator = (StoryFn, context) => {
     en: {},
     nl: {},
   }
-  console.log(context, locale, allMessages)
 
   return (
     <IntlProvider defaultLocale="fr" locale={locale} messages={allMessages[locale]}>

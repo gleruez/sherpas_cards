@@ -1,8 +1,8 @@
 import { HTMLAttributes, VFC } from 'react'
 import { Typography } from '@material-ui/core'
 
-import * as styles from './styles'
 import { Mode } from '@Components/designSystem/components/bodyTitle/BodyTitle'
+import * as styles from './styles'
 
 export type MeaProps = HTMLAttributes<HTMLDivElement> & {
   mode: Mode
