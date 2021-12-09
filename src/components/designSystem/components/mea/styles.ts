@@ -1,23 +1,18 @@
 import { css, SerializedStyles } from '@emotion/react'
-import { Mode } from '@Components/designSystem/components/bodyTitle/BodyTitle'
 import { rem } from 'polished'
 
-export const mea = (mode: Mode): SerializedStyles =>
+import { Mode } from '@Components/designSystem/components/mea/Mea.types'
+
+export const title = (mode: Mode): SerializedStyles =>
   css({
     alignItems: 'center',
-    backgroundColor: mode === 'ACCEPTED' ? 'red' : 'green',
+    backgroundColor: mode === 'ACCEPTED' ? '#00B672' : '#F00011',
     borderRadius: rem(10),
+    color: 'white',
     display: 'flex',
+    height: rem(25),
     justifyContent: 'center',
-    height: rem(20),
-    marginRight: rem(60),
+    margin: rem(5),
     padding: rem(5),
-    position: 'absolute',
-    right: 0,
-    width: rem(150),
+    width: rem(120),
   })
-
-export const title = css({
-  color: 'white',
-  margin: rem(5),
-})

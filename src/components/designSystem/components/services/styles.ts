@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
-import { rem } from 'polished'
+
 import { SPACING_0, SPACING_1 } from '@Styles/constants/spacing'
 
 export const services = css({
   display: 'flex',
   flexDirection: 'column',
+  marginTop: SPACING_1,
 })
 
 export const icons = css({

@@ -1,20 +1,24 @@
 import { Meta, Story } from '@storybook/react'
+import { rem } from 'polished'
 
 import BodyTitle, { BodyTitleProps } from '@Components/designSystem/components/bodyTitle/BodyTitle'
-import { isoDateToFormat, isoHourToFormat } from '@Utils/date'
+import { isoDateToFormat } from '@Utils/date'
 
 export default {
   title: 'Design System/Components/BodyTitle',
   component: BodyTitle,
 } as Meta
 
-const Template: Story<BodyTitleProps> = (args) => <BodyTitle {...args} />
+const Template: Story<BodyTitleProps> = (args) => (
+  <div css={{ width: rem(600), height: rem(400) }}>
+    <BodyTitle {...args} />
+  </div>
+)
 
 export const Default = Template.bind({})
 Default.args = {
   title: "Sessions d'évaluation - Maths",
   date: isoDateToFormat(new Date().toISOString()),
-  time: isoHourToFormat(new Date().toISOString()),
   mode: 'IN_PROGRESS',
 }
 

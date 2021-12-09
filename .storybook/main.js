@@ -20,21 +20,9 @@ module.exports = {
   ],
   babel: async (options) => ({
     ...options,
-    presets: [
-      ...options.presets,
-      '@emotion/babel-preset-css-prop',
-    ],
+    presets: [...options.presets, '@emotion/babel-preset-css-prop'],
   }),
-  webpackFinal: async (storybookConfig) => {
-    // // Exclude svg for fileLoaderRule, we want to use our custom rule
-    // const fileLoaderRule = storybookConfig.module.rules.find((rule) => {
-    //   if (!rule.test) {
-    //     return
-    //   }
-    //   return rule.test.test('.svg')
-    // })
-    // fileLoaderRule.exclude = [/.*.svg/]
-
+  webpackFinal: (storybookConfig) => {
     storybookConfig.resolve = {
       ...storybookConfig.resolve,
       plugins: [...((storybookConfig.resolve && storybookConfig.resolve.plugins) || []), new TsconfigPathsPlugin({})],

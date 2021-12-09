@@ -1,7 +1,8 @@
-import { HTMLAttributes, VFC } from 'react'
+import { Fragment, HTMLAttributes, VFC } from 'react'
 import { Typography } from '@material-ui/core'
 
-import { Mode } from '@Components/designSystem/components/bodyTitle/BodyTitle'
+import { Mode } from '@Components/designSystem/components/mea/Mea.types'
+
 import * as styles from './styles'
 
 export type MeaProps = HTMLAttributes<HTMLDivElement> & {
@@ -10,9 +11,11 @@ export type MeaProps = HTMLAttributes<HTMLDivElement> & {
 }
 
 const Mea: VFC<MeaProps> = ({ mode, title }) => (
-  <div css={styles.mea(mode)}>
-    <Typography css={styles.title}>{title}</Typography>
-  </div>
+  <Fragment>
+    <Typography variant="caption" css={styles.title(mode)}>
+      {title}
+    </Typography>
+  </Fragment>
 )
 
 export default Mea

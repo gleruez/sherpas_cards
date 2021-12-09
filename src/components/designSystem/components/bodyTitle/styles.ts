@@ -1,20 +1,28 @@
-import { rem } from 'polished'
 import { css } from '@emotion/react'
+import { rem } from 'polished'
+
+import { SPACING_0, SPACING_1, SPACING_3 } from '@Styles/constants/spacing'
 
 export const bodyTitle = css({
   display: 'flex',
-  margin: rem(4),
+  margin: `${SPACING_0} 0 ${SPACING_1}`,
 })
 
 export const icon = css({
-  marginRight: rem(20),
+  marginRight: SPACING_3,
+})
+
+export const titleInfo = css({
+  display: 'flex',
+  flexDirection: 'column',
+})
+
+export const globalTitle = css({
+  display: 'flex',
 })
 
 export const modeTitle = css({
-  position: 'absolute',
-  right: 0,
-})
-
-export const title = css({
-  fontWeight: 'bold',
+  display: 'flex',
+  justifyContent: 'end',
+  width: rem(310),
 })

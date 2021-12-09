@@ -1,4 +1,5 @@
 import { createTheme as createMuiTheme, responsiveFontSizes, Theme } from '@material-ui/core'
+
 import { globalTypography, typographyOverrides as overridesTypography } from './typography'
 
 export const createTheme = (): Theme => {

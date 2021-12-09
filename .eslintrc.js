@@ -30,6 +30,7 @@ module.exports = {
     '@typescript-eslint/array-type': ['error', { default: 'array' }],
     'object-shorthand': 'warn',
     'react/jsx-uses-react': 'off',
+    'react/jsx-fragments': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-curly-brace-presence': ['error', { props: 'never', children: 'never' }],
     'react/jsx-key': ['warn', { checkFragmentShorthand: true }],

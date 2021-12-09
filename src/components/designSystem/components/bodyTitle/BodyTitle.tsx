@@ -1,31 +1,37 @@
 import { VFC } from 'react'
-
+import { useIntl } from 'react-intl'
 import { Typography } from '@material-ui/core'
 import MenuBookTwoToneIcon from '@mui/icons-material/MenuBookTwoTone'
 
-import * as styles from './styles'
 import Mea from '@Components/designSystem/components/mea/Mea'
-import { useIntl } from 'react-intl'
+import { Mode } from '@Components/designSystem/components/mea/Mea.types'
+import { isoDateToFormat, isoHourToFormat } from '@Utils/date'
 
-export type Mode = 'ACCEPTED' | 'REFUSED' | 'IN_PROGRESS'
+import * as styles from './styles'
 
 export type BodyTitleProps = {
   date: string
-  modeTitle: string
   mode: Mode
   title: string
-  time: string
 }
 
-const BodyTitle: VFC<BodyTitleProps> = ({ date, modeTitle, mode, time, title }) => {
+const BodyTitle: VFC<BodyTitleProps> = ({ date, mode, title }) => {
   const { formatMessage } = useIntl()
 
   const getModeTitle = () => {
     switch (mode) {
       case 'ACCEPTED':
-        return <Mea mode={mode} title={formatMessage({ id: 'accepted' })} />
+        return (
+          <div css={styles.modeTitle}>
+            <Mea mode={mode} title={formatMessage({ id: 'accepted' })} />
+          </div>
+        )
       case 'REFUSED':
-        return <Mea mode={mode} title={formatMessage({ id: 'refused' })} />
+        return (
+          <div css={styles.modeTitle}>
+            <Mea mode={mode} title={formatMessage({ id: 'refused' })} />
+          </div>
+        )
       case 'IN_PROGRESS':
       default:
         return (
@@ -41,15 +47,18 @@ const BodyTitle: VFC<BodyTitleProps> = ({ date, modeTitle, mode, time, title }) 
   return (
     <div css={styles.bodyTitle}>
       <MenuBookTwoToneIcon css={styles.icon} />
-      <div>
-        <Typography component="p" variant="body1" css={styles.title}>
-          {title}
-        </Typography>
-        <Typography variant="subtitle1">
-          {formatMessage({ id: 'sendTitle' })} {date} {formatMessage({ id: 'to' })} {time}
-        </Typography>
+      <div css={styles.globalTitle}>
+        <div css={styles.titleInfo}>
+          <Typography component="p" variant="body1">
+            {title}
+          </Typography>
+          <Typography variant="subtitle1">
+            {formatMessage({ id: 'sendTitle' })} {isoDateToFormat(date)} {formatMessage({ id: 'to' })}{' '}
+            {isoHourToFormat(date)}
+          </Typography>
+        </div>
+        {getModeTitle()}
       </div>
-      {getModeTitle()}
     </div>
   )
 }
