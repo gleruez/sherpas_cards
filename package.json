@@ -14,7 +14,8 @@
     "@reduxjs/toolkit": "1.6.2",
     "polished": "4.1.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-intl": "5.21.0"
   },
   "scripts": {
     "storybook": "cross-env BASE_PATH=\"\" start-storybook -p 6003 -s public",
